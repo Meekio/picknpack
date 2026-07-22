@@ -10,7 +10,7 @@ from contextlib import asynccontextmanager
 import os
 
 from app.config import APP_TITLE, APP_VERSION, ALLOWED_ORIGINS
-from app.database import init_db
+from app.database import init_db, get_connection
 from app.routes import router
 from app.admin_routes import router as admin_router
 
@@ -60,6 +60,23 @@ app.include_router(admin_router, prefix="/api")
 # Health check
 # ---------------------------------------------------------------------------
 
-@app.get("/")
-def root():
-    return {"status": "ok", "app": APP_TITLE, "version": APP_VERSION}
+@app.get("/health", tags=["Health"])
+async def health():
+    try:
+        with get_connection() as conn:
+            with conn.cursor() as cur:
+                cur.execute("SELECT 1")
+
+        return {
+            "status": "healthy",
+            "database": "connected",
+            "app": APP_TITLE,
+            "version": APP_VERSION
+        }
+
+    except Exception as e:
+        return {
+            "status": "unhealthy",
+            "database": "disconnected",
+            "error": str(e)
+        }
