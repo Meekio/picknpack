@@ -38,15 +38,15 @@ export default function FloatingButton({ count, onClick }) {
       {/* Main floating button with pulse ring */}
       <div className="relative">
         {/* Pulsing ring */}
-        <span className="absolute inset-0 rounded-2xl bg-green-400 opacity-40 animate-ping" />
+        <span className="absolute inset-0 rounded-2xl bg-red-400 opacity-40 animate-ping" />
 
         <button
           onClick={() => { onClick(); setShowHint(false); }}
-          className="relative bg-green-500 hover:bg-green-600 active:scale-95 text-white px-5 py-3.5 rounded-2xl shadow-xl shadow-green-300 flex items-center gap-3 font-semibold text-sm transition-all duration-200"
+          className="relative bg-red-500 hover:bg-red-600 active:scale-95 text-white px-5 py-3.5 rounded-2xl shadow-xl shadow-red-300 flex items-center gap-3 font-semibold text-sm transition-all duration-200"
         >
           <ShoppingBasket size={20} />
           <span>Selected Items</span>
-          <span className="bg-white text-green-600 font-bold text-xs w-6 h-6 rounded-full flex items-center justify-center">
+          <span className="bg-white text-red-600 font-bold text-xs w-6 h-6 rounded-full flex items-center justify-center">
             {count}
           </span>
         </button>

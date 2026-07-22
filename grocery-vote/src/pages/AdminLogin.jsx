@@ -39,11 +39,11 @@ export default function AdminLogin() {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-green-50 to-emerald-100 flex items-center justify-center px-4">
+    <div className="min-h-screen bg-gradient-to-br from-red-50 to-rose-100 flex items-center justify-center px-4">
       <div className="bg-white rounded-3xl shadow-xl p-8 w-full max-w-sm space-y-6">
         {/* Logo */}
         <div className="flex flex-col items-center gap-3">
-          <div className="bg-green-500 text-white p-4 rounded-2xl shadow-lg shadow-green-200">
+          <div className="bg-red-500 text-white p-4 rounded-2xl shadow-lg shadow-red-200">
             <ShoppingBasket size={30} />
           </div>
           <div className="text-center">
@@ -65,7 +65,7 @@ export default function AdminLogin() {
                 onChange={(e) => setPassword(e.target.value)}
                 required
                 autoFocus
-                className="w-full pl-9 pr-10 py-3 rounded-xl border border-gray-200 text-sm focus:outline-none focus:ring-2 focus:ring-green-400 transition"
+                className="w-full pl-9 pr-10 py-3 rounded-xl border border-gray-200 text-sm focus:outline-none focus:ring-2 focus:ring-red-400 transition"
               />
               <button
                 type="button"
@@ -86,7 +86,7 @@ export default function AdminLogin() {
           <button
             type="submit"
             disabled={loading || !password}
-            className="w-full bg-green-500 hover:bg-green-600 disabled:bg-gray-100 disabled:text-gray-400 text-white font-bold py-3 rounded-xl flex items-center justify-center gap-2 transition-all active:scale-95 shadow-md shadow-green-200"
+            className="w-full bg-red-500 hover:bg-red-600 disabled:bg-gray-100 disabled:text-gray-400 text-white font-bold py-3 rounded-xl flex items-center justify-center gap-2 transition-all active:scale-95 shadow-md shadow-red-200"
           >
             {loading
               ? <><Loader2 size={16} className="animate-spin" /> Signing in...</>

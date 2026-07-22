@@ -14,8 +14,8 @@ export default function CategoryTabs({ active, onChange }) {
           onClick={() => onChange(tab.key)}
           className={`flex-shrink-0 px-5 py-2 rounded-full text-sm font-semibold transition-all duration-200 ${
             active === tab.key
-              ? 'bg-green-500 text-white shadow-md shadow-green-200'
-              : 'bg-white text-gray-600 border border-gray-200 hover:border-green-300 hover:text-green-600'
+              ? 'bg-red-500 text-white shadow-md shadow-red-200'
+              : 'bg-white text-gray-600 border border-gray-200 hover:border-red-300 hover:text-red-600'
           }`}
         >
           {tab.label}

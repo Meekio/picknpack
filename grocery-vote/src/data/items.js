@@ -29,7 +29,7 @@ export const fruits = [
     image: 'https://images.unsplash.com/photo-1526318472351-c75fcf070305?w=200&h=200&fit=crop&auto=format',
   },
   {
-    id: 8, name: 'Watermelon', category: 'fruit', color: 'bg-green-50',
+    id: 8, name: 'Watermelon', category: 'fruit', color: 'bg-red-50',
     image: 'https://images.unsplash.com/photo-1587049352846-4a222e784d38?w=200&h=200&fit=crop&auto=format',
   },
   {

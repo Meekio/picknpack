@@ -11,7 +11,7 @@ import { apiFetch } from '../lib/api';
 const CATEGORY_LABEL = { fruit: '🍎 Fruit', vegetable: '🥦 Vegetable', green: '🥬 Green' };
 const CATEGORY_COLOR = {
   fruit:     'bg-orange-100 text-orange-700',
-  vegetable: 'bg-green-100 text-green-700',
+  vegetable: 'bg-red-100 text-red-700',
   green:     'bg-lime-100  text-lime-700',
 };
 
@@ -73,7 +73,7 @@ export default function AdminDashboard() {
       <nav className="sticky top-0 z-40 bg-white border-b border-gray-100 shadow-sm">
         <div className="max-w-6xl mx-auto px-4 py-3 flex items-center justify-between">
           <div className="flex items-center gap-2.5">
-            <div className="bg-green-500 text-white p-2 rounded-xl">
+            <div className="bg-red-500 text-white p-2 rounded-xl">
               <ShoppingBasket size={20} />
             </div>
             <div>
@@ -84,7 +84,7 @@ export default function AdminDashboard() {
           <div className="flex items-center gap-2">
             <button
               onClick={fetchData}
-              className="flex items-center gap-1.5 text-sm font-semibold text-gray-500 hover:text-green-600 px-3 py-2 rounded-xl hover:bg-green-50 border border-gray-200 hover:border-green-300 transition"
+              className="flex items-center gap-1.5 text-sm font-semibold text-gray-500 hover:text-red-600 px-3 py-2 rounded-xl hover:bg-red-50 border border-gray-200 hover:border-red-300 transition"
             >
               <RefreshCw size={15} /> Refresh
             </button>
@@ -102,7 +102,7 @@ export default function AdminDashboard() {
 
         {loading ? (
           <div className="flex items-center justify-center py-32">
-            <Loader2 size={40} className="animate-spin text-green-400" />
+            <Loader2 size={40} className="animate-spin text-red-400" />
           </div>
         ) : (
           <>
@@ -126,8 +126,8 @@ export default function AdminDashboard() {
                   onClick={() => setActiveTab(t.key)}
                   className={`flex-shrink-0 flex items-center gap-1.5 px-4 py-2 rounded-full text-sm font-semibold transition-all
                     ${activeTab === t.key
-                      ? 'bg-green-500 text-white shadow-md shadow-green-200'
-                      : 'bg-white text-gray-600 border border-gray-200 hover:border-green-300'}`}
+                      ? 'bg-red-500 text-white shadow-md shadow-red-200'
+                      : 'bg-white text-gray-600 border border-gray-200 hover:border-red-300'}`}
                 >
                   {t.icon}{t.label}
                 </button>
@@ -181,13 +181,13 @@ function OverviewTab({ topProducts, maxVotes, totalVotes }) {
             <div className="flex-1 min-w-0">
               <div className="flex items-center justify-between mb-1.5">
                 <span className="text-sm font-bold text-gray-700">{item.name}</span>
-                <span className="text-sm font-extrabold text-green-600 ml-2">
+                <span className="text-sm font-extrabold text-red-600 ml-2">
                   {item.votes} <span className="text-xs font-normal text-gray-400">votes</span>
                 </span>
               </div>
               <div className="h-2 bg-gray-100 rounded-full overflow-hidden">
                 <div
-                  className="h-full bg-gradient-to-r from-green-400 to-emerald-500 rounded-full transition-all duration-700"
+                  className="h-full bg-gradient-to-r from-red-400 to-rose-500 rounded-full transition-all duration-700"
                   style={{ width: `${(item.votes / maxVotes) * 100}%` }}
                 />
               </div>
@@ -225,7 +225,7 @@ function AllProductsTab({ results, maxVotes }) {
           placeholder="Search products..."
           value={search}
           onChange={e => setSearch(e.target.value)}
-          className="flex-1 px-4 py-2.5 rounded-xl border border-gray-200 text-sm focus:outline-none focus:ring-2 focus:ring-green-400 transition bg-white"
+          className="flex-1 px-4 py-2.5 rounded-xl border border-gray-200 text-sm focus:outline-none focus:ring-2 focus:ring-red-400 transition bg-white"
         />
         <div className="flex gap-2">
           {['all', 'fruit', 'vegetable', 'green'].map(c => (
@@ -233,7 +233,7 @@ function AllProductsTab({ results, maxVotes }) {
               key={c}
               onClick={() => setFilterCat(c)}
               className={`px-3 py-2 rounded-xl text-xs font-bold transition capitalize
-                ${filterCat === c ? 'bg-green-500 text-white' : 'bg-white border border-gray-200 text-gray-600 hover:border-green-300'}`}
+                ${filterCat === c ? 'bg-red-500 text-white' : 'bg-white border border-gray-200 text-gray-600 hover:border-red-300'}`}
             >
               {c === 'all' ? '🛒 All' : c === 'fruit' ? '🍎' : c === 'vegetable' ? '🥦' : '🥬'} {c}
             </button>
@@ -256,7 +256,7 @@ function AllProductsTab({ results, maxVotes }) {
         ) : filtered.map((item, i) => (
           <div
             key={item.id}
-            className={`grid grid-cols-12 gap-2 items-center px-4 py-3 ${i !== filtered.length - 1 ? 'border-b border-gray-50' : ''} hover:bg-green-50/40 transition`}
+            className={`grid grid-cols-12 gap-2 items-center px-4 py-3 ${i !== filtered.length - 1 ? 'border-b border-gray-50' : ''} hover:bg-red-50/40 transition`}
           >
             <span className="col-span-1 text-xs text-gray-300 font-bold">{i + 1}</span>
 
@@ -277,10 +277,10 @@ function AllProductsTab({ results, maxVotes }) {
             </div>
 
             <div className="col-span-3 flex flex-col items-end gap-1">
-              <span className="text-sm font-extrabold text-green-600">{item.votes}</span>
+              <span className="text-sm font-extrabold text-red-600">{item.votes}</span>
               <div className="w-full h-1 bg-gray-100 rounded-full overflow-hidden">
                 <div
-                  className="h-full bg-green-400 rounded-full"
+                  className="h-full bg-red-400 rounded-full"
                   style={{ width: `${maxVotes > 0 ? (item.votes / maxVotes) * 100 : 0}%` }}
                 />
               </div>

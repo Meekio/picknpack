@@ -78,8 +78,8 @@ export default function Drawer({ open, onClose, selectedItems, allItems, onRemov
         {/* success screen */}
         {submitted ? (
           <div className="flex-1 flex flex-col items-center justify-center gap-4 py-12">
-            <CheckCircle2 size={64} className="text-green-500 animate-bounce" />
-            <p className="text-xl font-bold text-green-600">Vote Submitted!</p>
+            <CheckCircle2 size={64} className="text-red-500 animate-bounce" />
+            <p className="text-xl font-bold text-red-600">Vote Submitted!</p>
             <p className="text-sm text-gray-400">Thank you for your feedback 🎉</p>
           </div>
         ) : (
@@ -141,7 +141,7 @@ export default function Drawer({ open, onClose, selectedItems, allItems, onRemov
                   placeholder="e.g. Dragon Fruit, Jackfruit..."
                   value={fruitSuggestion}
                   onChange={(e) => setFruitSuggestion(e.target.value)}
-                  className="w-full px-4 py-2.5 rounded-xl border border-gray-200 text-sm focus:outline-none focus:ring-2 focus:ring-green-400 transition"
+                  className="w-full px-4 py-2.5 rounded-xl border border-gray-200 text-sm focus:outline-none focus:ring-2 focus:ring-red-400 transition"
                 />
               </div>
 
@@ -152,7 +152,7 @@ export default function Drawer({ open, onClose, selectedItems, allItems, onRemov
                   placeholder="e.g. Artichoke, Zucchini..."
                   value={vegSuggestion}
                   onChange={(e) => setVegSuggestion(e.target.value)}
-                  className="w-full px-4 py-2.5 rounded-xl border border-gray-200 text-sm focus:outline-none focus:ring-2 focus:ring-green-400 transition"
+                  className="w-full px-4 py-2.5 rounded-xl border border-gray-200 text-sm focus:outline-none focus:ring-2 focus:ring-red-400 transition"
                 />
               </div>
 
@@ -163,7 +163,7 @@ export default function Drawer({ open, onClose, selectedItems, allItems, onRemov
                   placeholder="e.g. Thandu Keerai, Vallarai Keerai..."
                   value={greenSuggestion}
                   onChange={(e) => setGreenSuggestion(e.target.value)}
-                  className="w-full px-4 py-2.5 rounded-xl border border-gray-200 text-sm focus:outline-none focus:ring-2 focus:ring-green-400 transition"
+                  className="w-full px-4 py-2.5 rounded-xl border border-gray-200 text-sm focus:outline-none focus:ring-2 focus:ring-red-400 transition"
                 />
               </div>
             </div>
@@ -176,7 +176,7 @@ export default function Drawer({ open, onClose, selectedItems, allItems, onRemov
             <button
               onClick={handleSubmit}
               disabled={loading || (selectedItems.length === 0 && !fruitSuggestion && !vegSuggestion && !greenSuggestion)}
-              className="w-full bg-green-500 hover:bg-green-600 disabled:bg-gray-200 disabled:text-gray-400 text-white font-bold py-3.5 rounded-2xl flex items-center justify-center gap-2 transition-all duration-200 active:scale-95"
+              className="w-full bg-red-500 hover:bg-red-600 disabled:bg-gray-200 disabled:text-gray-400 text-white font-bold py-3.5 rounded-2xl flex items-center justify-center gap-2 transition-all duration-200 active:scale-95"
             >
               {loading ? (
                 <><Loader2 size={18} className="animate-spin" /> Submitting...</>
@@ -193,12 +193,12 @@ export default function Drawer({ open, onClose, selectedItems, allItems, onRemov
 
 function SelectedChip({ item, onRemove }) {
   return (
-    <div className="flex items-center gap-1.5 bg-green-50 border border-green-200 text-green-700 text-sm font-semibold px-3 py-1.5 rounded-full">
+    <div className="flex items-center gap-1.5 bg-red-50 border border-red-200 text-red-700 text-sm font-semibold px-3 py-1.5 rounded-full">
       <span>{item.emoji}</span>
       <span>{item.name}</span>
       <button
         onClick={() => onRemove(item.id)}
-        className="ml-1 text-green-400 hover:text-red-400 transition"
+        className="ml-1 text-red-400 hover:text-red-500 transition"
       >
         <X size={14} />
       </button>

@@ -58,7 +58,7 @@ export default function App() {
   }, []);
 
   return (
-    <div className="min-h-screen bg-green-50">
+    <div className="min-h-screen bg-red-50">
       <Navbar />
 
       <main className="max-w-6xl mx-auto px-4 py-6 pb-20 space-y-5">
@@ -104,7 +104,7 @@ export default function App() {
       {/* Bottom hint banner — visible when items are selected */}
       {selectedIds.size > 0 && (
         <div
-          className="fixed bottom-0 left-0 right-0 z-40 bg-green-600 text-white text-sm font-semibold flex items-center justify-center gap-2 py-3 px-4 cursor-pointer sm:hidden"
+          className="fixed bottom-0 left-0 right-0 z-40 bg-red-600 text-white text-sm font-semibold flex items-center justify-center gap-2 py-3 px-4 cursor-pointer sm:hidden"
           onClick={() => setDrawerOpen(true)}
         >
           <span>🎉 {selectedIds.size} item{selectedIds.size !== 1 ? 's' : ''} selected</span>

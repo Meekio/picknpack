@@ -12,7 +12,7 @@ export default function SearchBar({ value, onChange }) {
         placeholder="Search fruits or vegetables..."
         value={value}
         onChange={(e) => onChange(e.target.value)}
-        className="w-full pl-10 pr-10 py-3 rounded-2xl border border-gray-200 bg-white shadow-sm text-sm focus:outline-none focus:ring-2 focus:ring-green-400 transition"
+        className="w-full pl-10 pr-10 py-3 rounded-2xl border border-gray-200 bg-white shadow-sm text-sm focus:outline-none focus:ring-2 focus:ring-red-400 transition"
       />
       {value && (
         <button
